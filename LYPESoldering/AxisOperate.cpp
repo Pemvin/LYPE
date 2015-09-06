@@ -123,7 +123,7 @@ BOOL CAxisOperate::LoadConfig()
 	char * pFileName = new char[len+1];   //以字节为单位
 	//宽字节编码转换成多字节编码
 	WideCharToMultiByte(CP_ACP,0,strString,strString.GetLength(),pFileName,len,NULL,NULL);
-	pFileName[len+1] = '\0';   //多字节字符以'/0'结束
+	pFileName[len] = '\0';   //多字节字符以'/0'结束
 	
 	Result=Acm_DevLoadConfig(pApp->mVar.m_Devhand,pFileName/*(char *)strString.GetBuffer(strString.GetLength())*/);
 	if(Result != SUCCESS)
